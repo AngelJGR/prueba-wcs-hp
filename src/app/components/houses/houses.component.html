@@ -1,1 +1,9 @@
 <p>houses works!</p>
+
+<mat-form-field>
+  <mat-select [(value)]="house" name="House">
+    <mat-option *ngFor="let house of houses" [value]="house">
+      {{house}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

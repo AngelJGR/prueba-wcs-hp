@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HpService } from 'src/app/services/hp.service';
 
+import { MatSelect } from '@angular/material/select';
+
 @Component({
   selector: 'app-houses',
   templateUrl: './houses.component.html',
@@ -16,6 +18,7 @@ export class HousesComponent implements OnInit {
   }
 
   house:string = ''
+  houses:Array<string> = ['slytherin', 'gryffindor', 'ravenclaw', 'hufflepuff']
 
   getHouse() {
     this._hpService.getHouse(this.house).subscribe(res => {

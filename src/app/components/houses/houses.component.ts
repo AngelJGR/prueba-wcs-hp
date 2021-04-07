@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HpService } from 'src/app/services/hp.service';
 
-import { MatSelect } from '@angular/material/select';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-houses',
@@ -15,15 +15,20 @@ export class HousesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getHouse()
   }
-
-  house:string = ''
+  house:string = 'gryffindor'
   houses:Array<string> = ['slytherin', 'gryffindor', 'ravenclaw', 'hufflepuff']
+  displayedColumns$: string[] = ['name', 'patronus', 'age', 'image'];
+  housesCharacters$
 
   getHouse() {
-    this._hpService.getHouse(this.house).subscribe(res => {
-      console.log(res)
-    })
+    this._hpService.getHouse(this.house)
+      .subscribe(res => {
+        this.housesCharacters$ = new MatTableDataSource<any>()
+        this.housesCharacters$.data = res
+        console.log(this.housesCharacters$)
+      })
   }
 
 }

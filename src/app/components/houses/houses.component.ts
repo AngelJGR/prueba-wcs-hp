@@ -28,7 +28,6 @@ export class HousesComponent implements OnInit {
     this.isLoadingResults = true
     this._hpService.getHouse(this.house)
       .subscribe(res => {
-        console.log(res)
         this.housesCharacters$ = new MatTableDataSource<any>()
         this.housesCharacters$.data = res
         this.isLoadingResults = false

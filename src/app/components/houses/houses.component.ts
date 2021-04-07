@@ -24,11 +24,10 @@ export class HousesComponent implements OnInit {
   isLoadingResults:boolean = false
 
   getHouse() {
-    this.housesCharacters$ = []
+    this.housesCharacters$ = new MatTableDataSource<any>()
     this.isLoadingResults = true
     this._hpService.getHouse(this.house)
       .subscribe(res => {
-        this.housesCharacters$ = new MatTableDataSource<any>()
         this.housesCharacters$.data = res
         this.isLoadingResults = false
       }, error => {

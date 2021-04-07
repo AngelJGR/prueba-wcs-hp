@@ -1,1 +1,36 @@
-<p>staff works!</p>
+<div class="mat-elevation-z1">
+
+  <div class="loading-container" *ngIf="isLoadingResults">
+    <div class="loading-shade">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+  </div>
+
+  <mat-table [dataSource]="staff$">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let teacher"> {{ teacher.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="patronus">
+      <mat-header-cell *matHeaderCellDef>Patronus</mat-header-cell>
+      <mat-cell *matCellDef="let teacher"> {{ teacher.patronus }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef>Age</mat-header-cell>
+      <mat-cell *matCellDef="let teacher"> {{ teacher.dateOfBirth | age }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+      <mat-cell *matCellDef="let teacher">
+        <img src="{{ teacher.image }}" width="50%">
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns$"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns$;"></mat-row>
+  </mat-table>
+</div>

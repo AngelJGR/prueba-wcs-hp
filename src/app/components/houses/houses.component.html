@@ -7,6 +7,13 @@
 </mat-form-field>
 
 <div class="mat-elevation-z1">
+
+  <div class="loading-container" *ngIf="isLoadingResults">
+    <div class="loading-shade">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+  </div>
+
   <mat-table [dataSource]="housesCharacters$">
 
     <ng-container matColumnDef="name">

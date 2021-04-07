@@ -19,15 +19,18 @@ export class HousesComponent implements OnInit {
   }
   house:string = 'gryffindor'
   houses:Array<string> = ['slytherin', 'gryffindor', 'ravenclaw', 'hufflepuff']
-  displayedColumns$: string[] = ['name', 'patronus', 'age', 'image'];
+  displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
   housesCharacters$
+  isLoadingResults:boolean = false
 
   getHouse() {
+    console.log(this.house)
+    this.isLoadingResults = true
     this._hpService.getHouse(this.house)
       .subscribe(res => {
         this.housesCharacters$ = new MatTableDataSource<any>()
         this.housesCharacters$.data = res
-        console.log(this.housesCharacters$)
+        this.isLoadingResults = false
       })
   }
 

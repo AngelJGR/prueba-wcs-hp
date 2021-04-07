@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 const MaterialComponents = [
-  MatSelectModule
+  MatSelectModule,
+  MatTableModule
 ]
 
 @NgModule({

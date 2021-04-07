@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HpService } from 'src/app/services/hp.service';
+
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-students',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _hpService: HpService
+  ) { }
 
   ngOnInit(): void {
+    this.getStudents()
+  }
+
+  students$
+  displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
+  isLoadingResults:boolean = false
+
+  getStudents () {
+    this.students$ = new MatTableDataSource<any>()
+    this.isLoadingResults = true
+    this._hpService.getStudents()
+      .subscribe(res => {
+        this.students$.data = res
+        this.isLoadingResults = false
+      }, error => {
+        this.isLoadingResults = false
+        console.log(error)
+      })
   }
 
 }

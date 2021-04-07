@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-select [(value)]="house" name="House" (onChange)="getHouse">
+  <mat-select [(value)]="house" name="House" (selectionChange)="getHouse()">
     <mat-option *ngFor="let house of houses" [value]="house">
       {{house}}
     </mat-option>

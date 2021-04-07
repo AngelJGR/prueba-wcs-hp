@@ -15,22 +15,26 @@ export class HousesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHouse()
   }
-  house:string = 'gryffindor'
+
+  house:string = ''
   houses:Array<string> = ['slytherin', 'gryffindor', 'ravenclaw', 'hufflepuff']
   displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
   housesCharacters$
   isLoadingResults:boolean = false
 
   getHouse() {
-    console.log(this.house)
+    this.housesCharacters$ = []
     this.isLoadingResults = true
     this._hpService.getHouse(this.house)
       .subscribe(res => {
+        console.log(res)
         this.housesCharacters$ = new MatTableDataSource<any>()
         this.housesCharacters$.data = res
         this.isLoadingResults = false
+      }, error => {
+        this.isLoadingResults = false
+        console.log(error)
       })
   }
 

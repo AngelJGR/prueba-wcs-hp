@@ -10,7 +10,7 @@ const MaterialComponents = [
 @NgModule({
   declarations: [],
   imports: [
-    // CommonModule,
+    CommonModule,
     MaterialComponents
   ],
   exports: [ MaterialComponents ]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HpService } from 'src/app/services/hp.service';
+import { Person } from 'src/app/interfaces/person';
 
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -23,7 +24,7 @@ export class StaffComponent implements OnInit {
   isLoadingResults:boolean = false
 
   getStaff () {
-    this.staff$ = new MatTableDataSource<any>()
+    this.staff$ = new MatTableDataSource<Person>()
     this.isLoadingResults = true
     this._hpService.getStaff()
       .subscribe(res => {

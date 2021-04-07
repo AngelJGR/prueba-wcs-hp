@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HousesComponent } from './components/houses/houses.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgePipe } from './pipes/age.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HousesComponent
+    HousesComponent,
+    AgePipe
   ],
   imports: [
     BrowserModule,

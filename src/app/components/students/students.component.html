@@ -1,3 +1,8 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event.target.value)">
+</mat-form-field>
+
 <div class="mat-elevation-z1">
 
   <div class="loading-container" *ngIf="isLoadingResults">

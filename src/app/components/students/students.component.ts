@@ -62,4 +62,10 @@ export class StudentsComponent implements OnInit {
     });
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.students$.filter = filterValue;
+  }
+
 }

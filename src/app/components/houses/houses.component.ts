@@ -41,4 +41,10 @@ export class HousesComponent implements OnInit {
       })
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.housesCharacters$.filter = filterValue;
+  }
+
 }

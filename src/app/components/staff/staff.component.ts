@@ -40,4 +40,10 @@ export class StaffComponent implements OnInit {
       })
   }
 
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.staff$.filter = filterValue;
+  }
+
 }

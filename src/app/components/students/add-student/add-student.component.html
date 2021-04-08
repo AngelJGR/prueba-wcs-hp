@@ -11,7 +11,9 @@
 
   <mat-form-field>
     <mat-label>Date of Birth</mat-label>
-    <input matInput type="date" [(ngModel)]="student.dateOfBirth" [formControl]="dateFormControl">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="student.dateOfBirth" [formControl]="dateFormControl">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
     <mat-error *ngIf="dateFormControl.hasError('required')">
       Date of Birth is <strong>required</strong>
     </mat-error>

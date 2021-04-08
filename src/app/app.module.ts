@@ -12,6 +12,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { StaffComponent } from './components/staff/staff.component';
 import { AddStudentComponent } from './components/students/add-student/add-student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'fr' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

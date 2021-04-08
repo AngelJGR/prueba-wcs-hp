@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HpService } from 'src/app/services/hp.service';
 import { Person } from 'src/app/interfaces/person';
 
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-houses',
@@ -10,6 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./houses.component.css']
 })
 export class HousesComponent implements OnInit {
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private _hpService: HpService
@@ -31,6 +34,7 @@ export class HousesComponent implements OnInit {
       .subscribe(res => {
         this.housesCharacters$.data = res
         this.isLoadingResults = false
+        this.housesCharacters$.paginator = this.paginator;
       }, error => {
         this.isLoadingResults = false
         console.log(error)

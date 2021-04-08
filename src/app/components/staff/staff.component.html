@@ -29,11 +29,11 @@
         <mat-card>
           <img mat-card-image src="{{ teacher.image }}" width="100%" alt="{{ teacher.name }}">
         </mat-card>
-        <!-- <img src="{{ teacher.image }}" width="50%"> -->
       </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns$"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns$;"></mat-row>
   </mat-table>
+  <mat-paginator [pageSizeOptions]="[3, 5, 10, 20]" [pageSize]="3" [showFirstLastButtons]></mat-paginator>
 </div>

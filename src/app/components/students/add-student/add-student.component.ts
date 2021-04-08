@@ -37,7 +37,7 @@ export class AddStudentComponent {
   ) { }
   
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close({success: false});
   }
 
   save():void {
@@ -47,7 +47,7 @@ export class AddStudentComponent {
     let studentsSaved:Array<Person> = JSON.parse(localStorage.getItem('students'))
     studentsSaved.push(this.student)
     localStorage.setItem('students', JSON.stringify(studentsSaved))
-    this.dialogRef.close();
+    this.dialogRef.close({success: true});
   }
 
 }

@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>New Student</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="student.name" [formControl]="nameFormControl">
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Date of Birth</mat-label>
+    <input matInput type="date" [(ngModel)]="student.dateOfBirth" [formControl]="dateFormControl">
+    <mat-error *ngIf="dateFormControl.hasError('required')">
+      Date of Birth is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Image</mat-label>
+    <input matInput [(ngModel)]="student.image" [formControl]="imageFormControl">
+    <mat-error *ngIf="imageFormControl.hasError('required')">
+      Image is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Patronus</mat-label>
+    <input matInput [(ngModel)]="student.patronus" [formControl]="patronusFormControl">
+    <mat-error *ngIf="patronusFormControl.hasError('required')">
+      Patronus is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button 
+    mat-button 
+    (click)="save()" 
+    [disabled]="nameFormControl.hasError('required') || dateFormControl.hasError('required') || imageFormControl.hasError('required') || patronusFormControl.hasError('required')"
+  >Save</button>
+  <!-- <button mat-button [mat-dialog-close]="student" cdkFocusInitial>Save</button> -->
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HpService } from 'src/app/services/hp.service';
 import { Person } from 'src/app/interfaces/person';
 
@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 
 @Component({
@@ -14,6 +16,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private _hpService: HpService,
@@ -27,7 +31,7 @@ export class StudentsComponent implements OnInit {
 
   students$
   // student:Person
-  displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
+  displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
 
   getStudents () {
@@ -37,6 +41,7 @@ export class StudentsComponent implements OnInit {
       .subscribe(res => {
         this.students$.data = res
         this.isLoadingResults = false
+        this.students$.paginator = this.paginator;
       }, error => {
         this.isLoadingResults = false
         console.log(error)

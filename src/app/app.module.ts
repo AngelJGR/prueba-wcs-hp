@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgePipe } from './pipes/age.pipe';
 import { StudentsComponent } from './components/students/students.component';
 import { StaffComponent } from './components/staff/staff.component';
+import { AddStudentComponent } from './components/students/add-student/add-student.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,17 @@ import { StaffComponent } from './components/staff/staff.component';
     HousesComponent,
     AgePipe,
     StudentsComponent,
-    StaffComponent
+    StaffComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

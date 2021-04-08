@@ -3,6 +3,8 @@ import { HpService } from 'src/app/services/hp.service';
 import { Person } from 'src/app/interfaces/person';
 
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { AddStudentComponent } from './add-student/add-student.component';
 
 @Component({
   selector: 'app-students',
@@ -12,7 +14,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class StudentsComponent implements OnInit {
 
   constructor(
-    private _hpService: HpService
+    private _hpService: HpService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -20,6 +23,7 @@ export class StudentsComponent implements OnInit {
   }
 
   students$
+  student:Person
   displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
 
@@ -34,6 +38,16 @@ export class StudentsComponent implements OnInit {
         this.isLoadingResults = false
         console.log(error)
       })
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddStudentComponent, {
+      width: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.student = result;
+    });
   }
 
 }

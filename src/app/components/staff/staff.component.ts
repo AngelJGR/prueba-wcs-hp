@@ -23,7 +23,7 @@ export class StaffComponent implements OnInit {
   }
 
   staff$
-  displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
+  displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
 
   getStaff () {

@@ -23,7 +23,7 @@ export class HousesComponent implements OnInit {
 
   house:string = ''
   houses:Array<string> = ['slytherin', 'gryffindor', 'ravenclaw', 'hufflepuff']
-  displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
+  displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   housesCharacters$
   isLoadingResults:boolean = false
 

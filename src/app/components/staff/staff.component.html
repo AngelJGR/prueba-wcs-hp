@@ -8,6 +8,11 @@
 
   <mat-table [dataSource]="staff$">
 
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let i = index"> {{ this.paginator.pageIndex == 0 ? i+1 : (i + this.paginator.pageIndex * this.paginator.pageSize) + 1 }} </td>
+    </ng-container>
+
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
       <mat-cell *matCellDef="let teacher"> {{ teacher.name }} </mat-cell>

@@ -5,6 +5,8 @@ import { Person } from 'src/app/interfaces/person';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-students',
@@ -15,7 +17,8 @@ export class StudentsComponent implements OnInit {
 
   constructor(
     private _hpService: HpService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +26,7 @@ export class StudentsComponent implements OnInit {
   }
 
   students$
-  student:Person
+  // student:Person
   displayedColumns$:string[] = ['name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
 
@@ -46,7 +49,11 @@ export class StudentsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.student = result;
+      if (result.success) {
+        this._snackBar.open('Solicitud Registrada', 'X', {
+          duration: 4000
+        })
+      }
     });
   }
 

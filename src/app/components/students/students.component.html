@@ -26,7 +26,9 @@
     <ng-container matColumnDef="image">
       <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
       <mat-cell *matCellDef="let student">
-        <img src="{{ student.image }}" width="50%">
+        <mat-card>
+          <img mat-card-image src="{{ student.image }}" width="100%" alt="{{ student.name }}">
+        </mat-card>
       </mat-cell>
     </ng-container>
 

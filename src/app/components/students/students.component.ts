@@ -9,8 +9,6 @@ import { RequestStudentsComponent } from './request-students/request-students.co
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 
-
-
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -31,7 +29,6 @@ export class StudentsComponent implements OnInit {
   }
 
   students$
-  // student:Person
   displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
   isSuccessLoad:boolean = false

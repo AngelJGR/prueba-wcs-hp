@@ -37,7 +37,6 @@
 
 </div>
 
-
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button 
@@ -45,5 +44,4 @@
     (click)="save()" 
     [disabled]="nameFormControl.hasError('required') || dateFormControl.hasError('required') || imageFormControl.hasError('required') || patronusFormControl.hasError('required')"
   >Save</button>
-  <!-- <button mat-button [mat-dialog-close]="student" cdkFocusInitial>Save</button> -->
 </div>

@@ -10,8 +10,6 @@ import { Person } from 'src/app/interfaces/person';
 })
 export class AddStudentComponent {
 
-  // student:Person
-
   student:Person = {
     name: '',
     patronus: '',

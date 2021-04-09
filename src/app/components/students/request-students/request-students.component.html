@@ -5,6 +5,10 @@
     <input matInput (keyup)="applyFilter($event.target.value)">
   </mat-form-field>
 
+  <div class="mat-elevation-z1" *ngIf="students$.data === null">
+    <h2>No students requests</h2>
+  </div>
+
   <div class="mat-elevation-z1">
 
     <mat-table [dataSource]="students$">

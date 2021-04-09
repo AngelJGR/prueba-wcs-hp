@@ -5,6 +5,7 @@ import { Person } from 'src/app/interfaces/person';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { RequestStudentsComponent } from './request-students/request-students.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -51,7 +52,7 @@ export class StudentsComponent implements OnInit {
       })
   }
 
-  openDialog(): void {
+  addStudentDialog(): void {
     const dialogRef = this.dialog.open(AddStudentComponent, {
       width: '350px'
     });
@@ -62,6 +63,12 @@ export class StudentsComponent implements OnInit {
           duration: 4000
         })
       }
+    });
+  }
+
+  showRequests(): void {
+    this.dialog.open(RequestStudentsComponent, {
+      width: '550px'
     });
   }
 

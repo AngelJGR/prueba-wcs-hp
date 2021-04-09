@@ -16,8 +16,11 @@
   justify-content: center;
 }
 
-.button {
+.button-flat {
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+.show-request-button {
+  margin-left: 20px;
 }

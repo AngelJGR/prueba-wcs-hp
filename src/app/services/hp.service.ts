@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
+import { Person } from '../interfaces/person';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,15 @@ export class HpService {
     private _http: HttpClient
   ) { }
 
-  getHouse(house:string):Observable<any> {
-    return this._http.get<any>(`${this.api_url}/house/${house}`)
+  getHouse(house:string):Observable<Person> {
+    return this._http.get<Person>(`${this.api_url}/house/${house}`)
   }
 
-  getStaff():Observable<any> {
-    return this._http.get<any>(`${this.api_url}/staff`)
+  getStaff():Observable<Person> {
+    return this._http.get<Person>(`${this.api_url}/staff`)
   }
 
-  getStudents():Observable<any> {
-    return this._http.get<any>(`${this.api_url}/students`)
+  getStudents():Observable<Person> {
+    return this._http.get<Person>(`${this.api_url}/students`)
   }
 }

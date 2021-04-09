@@ -1,4 +1,5 @@
 <mat-form-field>
+  <mat-label>Houses</mat-label>
   <mat-select [(value)]="house" name="House" (selectionChange)="getHouse()">
     <mat-option *ngFor="let house of houses" [value]="house">
       {{house}}

@@ -13,6 +13,7 @@ import { StaffComponent } from './components/staff/staff.component';
 import { AddStudentComponent } from './components/students/add-student/add-student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { RequestStudentsComponent } from './components/students/request-students/request-students.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     AgePipe,
     StudentsComponent,
     StaffComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    RequestStudentsComponent
   ],
   imports: [
     BrowserModule,

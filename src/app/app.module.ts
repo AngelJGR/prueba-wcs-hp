@@ -14,6 +14,7 @@ import { AddStudentComponent } from './components/students/add-student/add-stude
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { RequestStudentsComponent } from './components/students/request-students/request-students.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RequestStudentsComponent } from './components/students/request-students
     StudentsComponent,
     StaffComponent,
     AddStudentComponent,
-    RequestStudentsComponent
+    RequestStudentsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

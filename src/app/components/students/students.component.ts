@@ -33,14 +33,17 @@ export class StudentsComponent implements OnInit {
   // student:Person
   displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
+  isSuccessLoad:boolean = false
 
   getStudents () {
     this.students$ = new MatTableDataSource<Person>()
     this.isLoadingResults = true
+    this.isSuccessLoad = false
     this._hpService.getStudents()
       .subscribe(res => {
         this.students$.data = res
         this.isLoadingResults = false
+        this.isSuccessLoad = true
         this.students$.paginator = this.paginator;
       }, error => {
         this.isLoadingResults = false

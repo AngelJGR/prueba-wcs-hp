@@ -26,14 +26,17 @@ export class HousesComponent implements OnInit {
   displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   housesCharacters$
   isLoadingResults:boolean = false
+  isSuccessLoad:boolean = false
 
   getHouse() {
     this.housesCharacters$ = new MatTableDataSource<Person>()
     this.isLoadingResults = true
+    this.isSuccessLoad = false
     this._hpService.getHouse(this.house)
       .subscribe(res => {
         this.housesCharacters$.data = res
         this.isLoadingResults = false
+        this.isSuccessLoad = true
         this.housesCharacters$.paginator = this.paginator;
       }, error => {
         this.isLoadingResults = false

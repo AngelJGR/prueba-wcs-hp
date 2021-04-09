@@ -25,14 +25,17 @@ export class StaffComponent implements OnInit {
   staff$
   displayedColumns$:string[] = ['index', 'name', 'patronus', 'age', 'image'];
   isLoadingResults:boolean = false
+  isSuccessLoad:boolean = false
 
   getStaff () {
     this.staff$ = new MatTableDataSource<Person>()
     this.isLoadingResults = true
+    this.isSuccessLoad = false
     this._hpService.getStaff()
       .subscribe(res => {
         this.staff$.data = res
         this.isLoadingResults = false
+        this.isSuccessLoad = true
         this.staff$.paginator = this.paginator;
       }, error => {
         this.isLoadingResults = false

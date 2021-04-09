@@ -8,7 +8,7 @@
 
 <mat-form-field>
   <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event.target.value)" [disabled]="house === ''">
+  <input matInput (keyup)="applyFilter($event.target.value)" [disabled]="!isSuccessLoad">
 </mat-form-field>
 
 <div class="mat-elevation-z1">

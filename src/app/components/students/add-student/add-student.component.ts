@@ -45,7 +45,7 @@ export class AddStudentComponent {
       localStorage.setItem('students', JSON.stringify([]))
     }
     let studentsSaved:Array<Person> = JSON.parse(localStorage.getItem('students'))
-    let dateUnformat = (this.student.dateOfBirth as unknown as Date)
+    let dateUnformat: Date = (this.student.dateOfBirth as unknown as Date)
     let dateFormated: string = `${String(dateUnformat.getDate()).padStart(2, '0')}-${String(dateUnformat.getMonth() + 1).padStart(2, '0')}-${dateUnformat.getFullYear()}`
     this.student.dateOfBirth = dateFormated
     studentsSaved.push(this.student)

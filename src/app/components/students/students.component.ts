@@ -36,7 +36,7 @@ export class StudentsComponent implements OnInit {
   isLoadingResults:boolean = false
   isSuccessLoad:boolean = false
 
-  getStudents () {
+  getStudents (): void {
     this.students$ = new MatTableDataSource<Person>()
     this.isLoadingResults = true
     this.isSuccessLoad = false
@@ -72,7 +72,7 @@ export class StudentsComponent implements OnInit {
     });
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: string): void {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.students$.filter = filterValue;

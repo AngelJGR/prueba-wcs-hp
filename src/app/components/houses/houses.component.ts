@@ -28,7 +28,7 @@ export class HousesComponent implements OnInit {
   isLoadingResults:boolean = false
   isSuccessLoad:boolean = false
 
-  getHouse() {
+  getHouse(): void {
     this.housesCharacters$ = new MatTableDataSource<Person>()
     this.isLoadingResults = true
     this.isSuccessLoad = false
@@ -44,7 +44,7 @@ export class HousesComponent implements OnInit {
       })
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: string): void {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.housesCharacters$.filter = filterValue;

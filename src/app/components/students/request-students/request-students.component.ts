@@ -31,7 +31,7 @@ export class RequestStudentsComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: string): void {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.students$.filter = filterValue;

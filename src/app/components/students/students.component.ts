@@ -57,7 +57,7 @@ export class StudentsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.success) {
+      if (result && result.success) {
         this._snackBar.open('Solicitud Registrada', 'X', {
           duration: 4000
         })

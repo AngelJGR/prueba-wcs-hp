@@ -68,7 +68,7 @@ export class StudentsComponent implements OnInit {
 
   showRequests(): void {
     this.dialog.open(RequestStudentsComponent, {
-      width: '550px'
+      width: '750px'
     });
   }
 
